@@ -1,0 +1,207 @@
+
+TODO:
+
+- other site: 
+    - http://www.coachcarbone.org
+    - https://leclimatentrenosmains.org/fr/calculer-son-bilan-carbone
+    - http://www.fge-carbone.com/calcul.php#presentation
+        - many great ideas!
+
+
+- simplified questionnary on 1st access
+    - could be similar (but shorter!) to http://quedubonheur.codeconut.fr/enquete
+    - https://leclimatentrenosmains.org
+    
+- on result page, if missing Power &/or surface, add related fields to replace them
+
+- expand fields to add details
+    - use more levels of drilldown in the graphs (unlimited?)
+        - manage click on sub or on main sector
+    - access form from last levels of graphs
+    
+- Drilldown colors, add a variation on transparence based on ratio of the domaine (for now it's random)
+
+- edit user history
+    - select date where to change the data
+    - Data manipulation should be done by javascript, not by PHP
+
+- sort results  
+    - quite complex to sort by highest while keeping domaine ordered
+    - sort by field and by domaine
+
+- at results, propose relevant solutions
+
+- rotate graphs by half the section of 1st domaine
+
+- improve field priority
+    - After some user saved their values, calculate average of each fields
+    
+- ask most important (arbitrary) values 1st, then add more by click (div scroll down)
+    - keep "more" button until no more values in category
+        - or divide until no more
+    - only max 5(?) for short or 10(?) for long
+    - On next checks, all already saved values + 3 more, scroll down
+    - keep sub division together
+    - when adding, take 3 random out of 10 with highest average value
+    
+- get CO2 factor from external DB
+    - list a lot more possible item
+    - add a custom search for user to add a specific one
+    
+- access
+    - forgot password
+    - remember me
+    
+- nuclear treatment
+
+- user info in modal form
+    - 1st connect, last connect, last save
+    - percentile info...
+    - picture?
+    
+- other languages (at least english)
+    - learn best way to do it (not much help from the web so far)
+    
+- create a gitHub to share the work
+    - how even to ? :)
+    
+- share result to social networks
+    - screenshot of graphs
+    - link and api
+    
+- automated mail every 3 month to users (?)
+
+- onKeyUp, format user number (1 000 000)
+
+- calculer en % la progression année après année et comparer à la valeur nécessaire pour être neutre en carbone en 2050 (3% par an ?) ...
+    
+- color blindness in option for graphs
+
+- popup messages to help user
+    - some info on 1st connexion
+    
+- organic part in vegetables calculation
+
+- uglify (faster page loading)
+
+- give comparisons
+    - 1 T eq CO2 = 
+        - 6849.316819 Km en Clio 1,2L (6,2 L par 100km)
+        - 1.218912808 Aller-Retour entre Paris et New York
+        - 200000      Une ampoule allumée durant
+        - 200         m2 de forêt tropicale brulée
+
+
+ONGOING:
+- display estimation of time to fill short and long (pending on feedback)
+- all SQL queries at once
+    - page data - OK --> much faster now :)
+    - connection queries with same functions (not faster, but cleaner)
+- Review valueTab, merge with G_aFIELDS?
+
+DONE:
+- get data from DB
+- restore site functions
+- recreate formula to calculate carbon eq from values
+- add a table to allow check of value (quick and dirty before later display)
+- user connexion:
+    - modal form for user connexion (no page reload)
+    - save new user
+    - connect user
+    - save user history
+    - save user history --> with date!
+- on body load, reload last data (& on connect, without erasing current info if any)
+- check values Kg eq C & CO2 (--> JuB)
+    - too much decimals
+    - CO2 factors car and subway
+    - motorbike and scooter formula
+    - organic part in meat calculation
+- confirmation when user saves data, with details of what happened
+- Connexion status (username displayed up right) is now on all pages
+- added many contents to FAQ (but this should go to qTips when available)
+- display Kg eq C & CO2 values on 1st page (at user input)
+- check units in DB
+- when clicking on save assessment, if not connected, assessment is saved after connection
+- accept numbers with coma as decimal separator
+- group values by sub category (like gas or GPL cars)
+- display qtips in many places
+- bottled water yes/no
+- if more than 6(?) field/domaine, display as a div to scroll down
+- default value to public services
+- add climatic and energetic building performances
+- Add qTip with dynamic content to calculate Electricity and Fioul consuption
+- improve sources
+- improve qtips
+- display user history (graph)
+- put in place a test version
+- change graphs from graph.js to highgraph.js
+- detailed results on graphs, with each field importance, matching domaines
+- Drilldown colors equal to main group (with random transparence)
+- graphs auto sets to screen width on mobile
+- hilight the climatic and energetic building performances efficiency with picture map
+
+
+
+FEEDBACK
+Dominique de Rotalier
+    Pour le cas ou vous soyez encore en développement sur cet outil, puis-je me permettre encore une suggestion ?
+    - Mettre aussi à droite du graphique une échelle en t/CO2
+    - Pour que l'historique permette d'exploiter des données anciennes ou futures, ne pas générer automatiquement la date présumée des données avec la date actuelle, mais ajouter en bas ou au début de la saisie une case avec la date valable pour ces données là.
+    Si c'est possible merci beaucoup;
+
+- from JUB:
+    - fioul et voiture : le FE à 1 kgC/L, il faut savoir que ce n'est pas vraiment exact mais TaCa y tient mordicus en terme de com'. Débat à relancer un jour.
+    - eau en bouteille et forfait service public : souci calcul ? le FE est bon, mais rien n'apparaît sur les colonnes carbone et CO2
+    - possibilité de mettre à jour les FE ultérieurement, sur base du fichier Brochure ODG carbone
+    - Eau en bouteille : marche pas ?
+    - Sur téléphone, En mode portrait, les graphe   s débordent légèrement à droite, l'affichage du tableau résultats est peu lisible : les 4 dernières colonnes du tableau sont fusionnées en une seule et c'est pas très sympa.
+- from JUB 2:
+    - après enquête, en fait, la question des kg pour le propane, c'est parce qu'il a une cuve enterrée avec facture en kg... Sur la conversion masse, je trouve 12,8 kWh PCI/kg pour butane et propane. Le convertisseur manque un peu de visibilité  peut-être ajouter un chapeau dans le volet logement pour indiquer qu'on peut convertir ?
+    - Pour les portions de légume, je dirais que pour une végétarien, on doit être à 500 g/jour de légumes ; pour un plutôt carnivore avec légume en accompagnement, plutôt 300 g. Pour les fruits, 1 pomme = 200 g
+
+- from Paul
+    - premier retour : le camembert change parfois quand tu balade ta souris dessus, et j'avais mon poste "alimentation" qui s'affichait en négatif (réglé quand j'ai remplacé les points par des virgules dans les chiffres rentrés)
+    - Faiblesse par rapport à excel : tu ne peux pas faire des ratios à la volée en inscrivant un calcul complet dans le champ de réponse (souvent je rentre "=12300+2600/4" pour indiquer que je fais 300km chaque mois, et 600km deux fois par an, en covoiturage à 4. Ici  ce n'est pas possible...)
+    - Grosse frustration sur l'export : je fais la procédure, il me propose d'exporter les résultats, je créé un compte... et là le site me renvoie à la page d'accueil, toutes les données sont effacées, et impossible de revenir en arrière :( 
+    - Et quand je vais directement sur la page "créer un compte" : le bouton vert "créer le compte" ne répond pas...
+    - ah, et le forfait individuel n'est pas indiqué (j'ai cru qu'il fallait indiqué le nombre de citoyens, j'ai mis 1)
+- from Jean
+    - Dans la partie Saisie il faut mettre les titres des colonnes (Unité, Impact carbone, impact CO2)
+    - L'option oui pour l'eau en bouteille n'est pas accessible
+    - Les resultats d'impact doivent etre affichés sans , (arrondi au kg le + proche si possible)
+    - Je ne suis pas arrivé à enchainer sur l'enregistrement du bilan. Je ne sais pas si mon
+        utilisateur jean de Taca est enregistré non plus, il doit y avoir encore de la mise au point de ce coté.
+    Et sur le fonctionnel, pour s'en souvenir à discuter avec les autres concernés par l'outil, voici quelques remarques:
+    - le bonus % bio pourrait s'appliquer aussi sur les laitages et fromages qui sont concernés aussi par cette pratique.
+    - la saisie du service public n'a pas de sens, vu que ce forfait est obligatoire
+    - il faudrait que les commentaires soient accessible pour éclairer l'utilisateur lors de la saisie
+    - je continue à penser qu'il serait bien d'avoir une categorie d'achat intermediaire entre les 2 disponibles (avec des poids carbone tres differents)
+    
+    Autres évolutions fonctionnelles
+    Ensuite on pourra verifier minutieusement l'application des facteurs d'émission (qui en gros me parait correcte), le nouveaux choix pour les achats divers, les textes d'information sur la façon de faire les saisies.
+    Je suis aussi interessé à dsavoir s'il est possible d'ajouter un onglet volontaire Signal Prix Carbone (application d'un prix carbone défini et calcul du montant à verser au delà de la redistribution mondiale évaluée pour ce prix.
+
+Anais
+    effectivement c'est un bilan carbone poussé!! mais sur la page de l'accueil il propose le bilan rapide (plus tard) ;)
+    l'onglet source, on voit pas le doc en entier et les liens ne sont pas des liens
+    le lien facebook (icone) ne fonctionne pas, à moins que c'est le pare feu ici
+    j'ai pas mis le nez dans excel
+    demander le kg de chaque aliment c'est vraiment difficile, est -ce que vous pouvez pas basé vos calculs (certes moins précis), combien de repas par semaine comportant de la viande, du riz etc. j'arriverai mieux à répondre
+    pour le train, on parle de kilométrage et l'aide parle du nombre d'heure
+    "communauté réduite aux acquets" kesako?
+    aussi la faq j'y suis allé à deux reprises et la première 4 questions, la deuxième fois deux questions (il n'y a plus les finances et un autre)
+
+Petit canard
+    je viens de regarder le site et c'est un truc intéressant.
+    par contre je trouve ça compliquer et pas abordable pour tous.
+    Serait il possible de faire 2 versions : 
+    1/diagnostique très rapide que tout le monde peux remplir avec des hypothèses pour les trucs non calculés 
+    2 diagnostique complet pour ceux qui ont leur facture d'electricité sur eux et leur conso de riz par an ;)
+    
+Pierrot
+    excellent travail!! L'évolution dans le temps, la naviguabilité , la facilité, vraiment chouette!
+    Premières remarques:
+    - pourquoi les graphes ne sont qu'en kg eq C et pas kgeq CO2?
+    - sur le bar chart, quand on est dans le detail d'une barre le "back to domain" vient masquer certaines données?
+    - sur le site fge-carbone, il font un truc pas mal qui consiste à faire une entre la quantité et la fréquence en live quand tu rentres ta donnée de facon à aider à évaluer sa quantité consommée, je trouve que c'est pas mal....
+    - ne devrait-on pas distinguer voiture essence/diesel/ hybride/ electrique ?
