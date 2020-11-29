@@ -1,0 +1,55 @@
+
+ /* graphs */
+.smallGraph {
+    max-width: 412px;
+    height: 350px;
+    margin: 0 auto;
+    display: block;
+    overflow: hidden;
+}
+ @media screen and (min-width: 412px) { 
+    .smallGraph {
+        display: inline-block; 
+        width: 412px;
+    }
+ }
+.histoGraph {
+    max-width: 824px;
+    height: 600px;
+    margin: 0 auto;
+    display: block;
+    overflow: hidden;
+}
+
+ /* qTips TO BE REMOVED??? */
+.qTipInput {
+    background: #333333 
+}
+
+ /* Climate and energy performances */
+.perfoImg{
+    position:absolute;
+    z-index:1;
+}
+
+#EperfoContainer{
+    display:inline-block;
+    width:400px; 
+    height:340px;
+    margin: 0 auto; 
+    position:relative; }
+
+#CperfoContainer{
+    display:inline-block;
+    width:400px; 
+    height:483px;
+    margin: 0 auto; 
+    position:relative; }
+
+#EperfoCanvas, #CperfoCanvas{
+    position:relative;
+    z-index:20;
+}
+
+
+
